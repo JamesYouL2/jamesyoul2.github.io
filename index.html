@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>James You</title>
-<meta name="description" content="James You is a data engineer in Bellevue, Washington. Data platforms by day, game-playing AI on GitHub the rest of the time.">
+<meta name="description" content="James You is a data engineer in Bellevue, Washington. This page lists the open-source projects he works on.">
 <meta property="og:title" content="James You">
-<meta property="og:description" content="Data platforms by day, game-playing AI on GitHub the rest of the time.">
+<meta property="og:description" content="Data engineer in Bellevue, Washington. Open-source projects I work on.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jamesyoul2.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314233a'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23e8edf1'%3EJY%3C/text%3E%3C/svg%3E">
@@ -146,12 +146,10 @@
 
   <header class="intro">
     <h1>James You</h1>
-    <p>I'm a data engineer in Bellevue, Washington. My day job is data platform
-      architecture for government agencies: access control, compliance, and the
-      other parts that have to be right.</p>
-    <p>The rest of the time I build game-playing AI. Most of that code is written
-      with LLMs, which leaves me the part I like best: deciding what to build and
-      how to tell whether it worked.</p>
+    <p>I'm a data engineer in Bellevue, Washington. I work on data platforms
+      for government agencies, mostly access control and compliance.</p>
+    <p>In my spare time I work on bots that play games. I write most of the code
+      with LLMs and spend my own time on what to build and how to test it.</p>
     <ul class="elsewhere">
       <li><a href="https://github.com/JamesYouL2">GitHub</a></li>
       <li><a href="https://www.linkedin.com/in/james-you-4599751a/">LinkedIn</a></li>
@@ -160,8 +158,8 @@
 
   <section aria-labelledby="projects-heading">
     <h2 id="projects-heading">Projects</h2>
-    <p class="lede">Everything here is public on GitHub. Several are other
-      people's projects that I work on, so each one says whose it is.</p>
+    <p class="lede">These are all public on GitHub. Some are other people's
+      projects that I contribute to.</p>
     <ul class="key" aria-hidden="true">
       <li><span class="mark own"></span>Mine</li>
       <li><span class="mark fork"></span>My fork of someone else's project</li>
@@ -177,11 +175,10 @@
           <p class="whose">Mikhail Dektiarev's project. I contribute.<span class="meta" data-repo="mihaild/DeepStruggle" data-stars="5" data-pushed="2026-11-09"></span></p>
           <p class="about">A bot that plays the board game Twilight Struggle. It has a
             C++ rules engine, networks trained by self-play, and search at play time.
-            The whole thing runs in a browser tab, so you can sit down and lose to it.</p>
-          <p class="mine">My work is on search and evaluation: a rollout-based search
-            that outplayed the earlier one, experiments on whether what search finds
-            can be trained back into the network, and a census of blunders the engine
-            can prove are mistakes.</p>
+            It runs in the browser, so you can play against it.</p>
+          <p class="mine">I work on search and evaluation: a rollout-based search
+            that beat the earlier one, experiments on training the network on what
+            search finds, and a collection of positions where the network blunders.</p>
           <ul class="links">
             <li><a href="https://mihaild.github.io/DeepStruggle/">Play against it</a></li>
             <li><a href="https://mihaild.github.io/DeepStruggle/leaderboard.html">Leaderboard</a></li>
@@ -197,14 +194,13 @@
         <div>
           <h3><a href="https://github.com/JamesYouL2/struggler">struggler</a></h3>
           <p class="whose">My fork of Alejandro Pinel Martínez's engine.<span class="meta" data-repo="JamesYouL2/struggler" data-stars="0" data-pushed="2026-09-29"></span></p>
-          <p class="about">A Python engine for the same game, built so that bots can
-            be swapped in and played against each other. One of them is an LLM player
-            that reads the rules and a strategy guide, drafts a plan each turn, and
-            decides when to abandon it.</p>
-          <p class="mine">In my fork I rebuilt the non-LLM strategic bot: country
-            values fitted from games, an opening book, tree-search experiments, and a
-            win-probability model checked on held-out games. A change only ships if it
-            wins a tournament run in CI.</p>
+          <p class="about">A Python engine for the same game, built so that different
+            bots can play each other. One of them is an LLM player that reads the
+            rules and a strategy guide and makes a plan each turn.</p>
+          <p class="mine">In my fork I rebuilt the non-LLM bot: country values fitted
+            from games, an opening book, tree-search experiments, and a
+            win-probability model tested on held-out games. A change has to win a
+            tournament in CI before it is merged.</p>
           <ul class="links">
             <li><a href="https://github.com/JamesYouL2/struggler">Code</a></li>
             <li><a href="https://siestainsolaris.substack.com/p/giving-ai-the-atom-bomb-buttons">The original author's write-up</a></li>
@@ -219,9 +215,9 @@
           <p class="whose">Tom Szymanski's project. I contribute.<span class="meta" data-repo="unrealities/MTGA_Draft_17Lands" data-stars="167" data-pushed="2026-11-09"></span></p>
           <p class="about">A draft assistant for Magic: The Gathering Arena that
             rates each pick using 17Lands data.</p>
-          <p class="mine">I work on the draft advisor: a deck score built from named
-            features, a harness that replays past drafts through it, and tests of
-            competing pick rules against real game results.</p>
+          <p class="mine">I work on the draft advisor: its deck score, a tool that
+            replays past drafts through it, and tests of different pick rules against
+            real game results.</p>
           <ul class="links">
             <li><a href="https://github.com/JamesYouL2/MTGA_Draft_17Lands">My fork</a></li>
             <li><a href="https://github.com/unrealities/MTGA_Draft_17Lands">Main repository</a></li>
