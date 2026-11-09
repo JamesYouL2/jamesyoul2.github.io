@@ -4,178 +4,264 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>James You</title>
-<meta name="description" content="James You — data engineer. Open-source projects I work on and contribute to.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f3a5f'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='700' text-anchor='middle' fill='%23fff'%3EJY%3C/text%3E%3C/svg%3E">
+<meta name="description" content="James You is a data engineer in Bellevue, Washington. Data platforms by day, game-playing AI on GitHub the rest of the time.">
+<meta property="og:title" content="James You">
+<meta property="og:description" content="Data platforms by day, game-playing AI on GitHub the rest of the time.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jamesyoul2.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314233a'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23e8edf1'%3EJY%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fbfaf7;
-    --text: #1c1d1f;
-    --muted: #666a70;
-    --line: #e2dfd8;
-    --accent: #1f3a5f;
-    --card: #ffffff;
+    --paper: #e8edf1;
+    --ink: #14233a;
+    --soft: #52627a;
+    --rule: #c3ccd6;
+    --blue: #1d5aa6;
+    --red: #b3342c;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #14161a;
-      --text: #e7e6e3;
-      --muted: #9a9ea6;
-      --line: #2a2e35;
-      --accent: #9cc0ee;
-      --card: #1a1d22;
+      --paper: #131c2a;
+      --ink: #e6ebf2;
+      --soft: #9aa8bc;
+      --rule: #2e3b50;
+      --blue: #7fb2ee;
+      --red: #ee8a80;
     }
   }
+
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.55;
   }
-  main { max-width: 43rem; margin: 0 auto; padding: 4.5rem 1.25rem 4rem; }
-  a { color: var(--accent); text-underline-offset: 0.18em; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+  .page {
+    max-width: 43rem;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 9vw, 6rem) 1.5rem 4rem;
+  }
+
+  a { color: var(--blue); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
 
   h1 {
-    font: 700 2.6rem/1.1 Georgia, "Times New Roman", serif;
-    letter-spacing: -0.01em;
-    margin: 0 0 0.75rem;
+    margin: 0 0 1.5rem;
+    font-size: clamp(3.25rem, 13vw, 6rem);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.035em;
   }
-  .intro { margin: 0 0 1.25rem; max-width: 34rem; }
-  .links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
-  .links a {
-    display: inline-block;
-    padding: 0.4rem 0.95rem;
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-decoration: none;
+  .intro p { margin: 0 0 1rem; max-width: 36rem; }
+  .intro p:first-of-type { font-size: 1.35rem; line-height: 1.4; }
+
+  .elsewhere {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.6rem;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 500;
   }
-  .links a:hover { background: var(--accent); color: var(--bg); }
 
   h2 {
-    font-size: 0.8rem;
+    margin: 4.5rem 0 0.4rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 3.25rem 0 0.25rem;
+    letter-spacing: -0.015em;
   }
-  .projects { list-style: none; margin: 0; padding: 0; }
-  .projects li { padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
-  .projects li:last-child { border-bottom: 0; }
-  .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.9rem; }
-  .head a { font-weight: 650; font-size: 1.08rem; overflow-wrap: anywhere; }
-  .owner { font-weight: 400; opacity: 0.75; }
-  .meta { color: var(--muted); font-size: 0.86rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .meta span + span::before { content: "·"; margin: 0 0.45em; }
-  .projects p { margin: 0.3rem 0 0; }
-  .mine { color: var(--muted); font-size: 0.93rem; }
+  .lede { margin: 0 0 1.25rem; color: var(--soft); max-width: 36rem; }
 
-  footer { margin-top: 3.5rem; color: var(--muted); font-size: 0.85rem; }
+  /* The marker says whose project it is. */
+  .key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.5rem;
+    margin: 0 0 0.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.95rem;
+    color: var(--soft);
+  }
+  .key li { display: flex; align-items: center; gap: 0.5rem; }
+  .mark {
+    flex: none;
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+  }
+  .mark.own { background: var(--blue); }
+  .mark.fork { background: linear-gradient(90deg, var(--blue) 50%, transparent 50%); }
+  .mark.contrib { border-color: var(--red); }
+
+  .projects { margin: 0; padding: 0; list-style: none; }
+  .projects > li {
+    display: grid;
+    grid-template-columns: 0.85rem 1fr;
+    column-gap: 1.1rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .projects .mark { margin-top: 0.55rem; }
+  .projects h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .projects h3 a { color: inherit; }
+  .whose { margin: 0.1rem 0 0.6rem; font-size: 0.95rem; color: var(--soft); }
+  .meta { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .meta span::before { content: "·"; margin: 0 0.45em; }
+  .projects p.about { margin: 0 0 0.6rem; }
+  .projects p.mine { margin: 0 0 0.7rem; }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .older { margin: 0; padding-top: 1.6rem; border-top: 1px solid var(--rule); color: var(--soft); }
+
+  footer { margin-top: 4.5rem; font-size: 0.95rem; color: var(--soft); }
 </style>
 </head>
 <body>
-<main>
-  <header>
+<main class="page">
+
+  <header class="intro">
     <h1>James You</h1>
-    <p class="intro">Data engineer. Outside of work I mostly build game AI and tools around game and sports data.</p>
-    <ul class="links">
+    <p>I'm a data engineer in Bellevue, Washington. My day job is data platform
+      architecture for government agencies: access control, compliance, and the
+      other parts that have to be right.</p>
+    <p>The rest of the time I build game-playing AI. Most of that code is written
+      with LLMs, which leaves me the part I like best: deciding what to build and
+      how to tell whether it worked.</p>
+    <ul class="elsewhere">
       <li><a href="https://github.com/JamesYouL2">GitHub</a></li>
       <li><a href="https://www.linkedin.com/in/james-you-4599751a/">LinkedIn</a></li>
     </ul>
   </header>
 
-  <section>
-    <h2>Working on now</h2>
-    <ul class="projects">
-      <li data-repo="mihaild/DeepStruggle" data-stars="5" data-pushed="2026-11-09">
-        <div class="head">
-          <a href="https://github.com/mihaild/DeepStruggle"><span class="owner">mihaild/</span>DeepStruggle</a>
-          <span class="meta"></span>
-        </div>
-        <p>An engine and reinforcement-learning pipeline for an AI that plays the board game Twilight Struggle.</p>
-        <p class="mine">24 merged pull requests: search improvements, rules and engine fixes, blunder analysis, and the web board.
-          <a href="https://github.com/mihaild/DeepStruggle/pulls?q=is%3Apr+author%3AJamesYouL2">See them</a></p>
-      </li>
-      <li data-repo="unrealities/MTGA_Draft_17Lands" data-stars="167" data-pushed="2026-11-09">
-        <div class="head">
-          <a href="https://github.com/unrealities/MTGA_Draft_17Lands"><span class="owner">unrealities/</span>MTGA_Draft_17Lands</a>
-          <span class="meta"></span>
-        </div>
-        <p>A draft assistant for Magic: The Gathering Arena that uses 17Lands win-rate data.</p>
-        <p class="mine">16 merged pull requests, mostly on the draft advisor: fitting its deck score to game results, fixing pick tracking, and removing parts that didn't change its picks.
-          <a href="https://github.com/unrealities/MTGA_Draft_17Lands/pulls?q=is%3Apr+author%3AJamesYouL2">See them</a></p>
-      </li>
-      <li data-repo="JamesYouL2/struggler" data-stars="0" data-pushed="2026-09-29">
-        <div class="head">
-          <a href="https://github.com/JamesYouL2/struggler"><span class="owner">JamesYouL2/</span>struggler</a>
-          <span class="meta"></span>
-        </div>
-        <p>A Twilight Struggle engine for training and testing AI agents, including an LLM bot.</p>
-        <p class="mine">My fork of <a href="https://github.com/alekpinel/struggler">alekpinel/struggler</a>, where I did a long run of engine and rules work before moving to DeepStruggle.</p>
-      </li>
-      <li data-repo="JamesYouL2/FantasyBaseball" data-stars="6" data-pushed="2026-08-10">
-        <div class="head">
-          <a href="https://github.com/JamesYouL2/FantasyBaseball"><span class="owner">JamesYouL2/</span>FantasyBaseball</a>
-          <span class="meta"></span>
-        </div>
-        <p>Updates a spreadsheet every day with FanGraphs depth-chart projections and syncs it with a Yahoo fantasy baseball league.</p>
-      </li>
+  <section aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Projects</h2>
+    <p class="lede">Everything here is public on GitHub. Several are other
+      people's projects that I work on, so each one says whose it is.</p>
+    <ul class="key" aria-hidden="true">
+      <li><span class="mark own"></span>Mine</li>
+      <li><span class="mark fork"></span>My fork of someone else's project</li>
+      <li><span class="mark contrib"></span>Someone else's, I contribute</li>
     </ul>
+
+    <ul class="projects">
+
+      <li>
+        <span class="mark contrib" aria-hidden="true"></span>
+        <div>
+          <h3><a href="https://github.com/JamesYouL2/DeepStruggle">DeepStruggle</a></h3>
+          <p class="whose">Mikhail Dektiarev's project. I contribute.<span class="meta" data-repo="mihaild/DeepStruggle" data-stars="5" data-pushed="2026-11-09"></span></p>
+          <p class="about">A bot that plays the board game Twilight Struggle. It has a
+            C++ rules engine, networks trained by self-play, and search at play time.
+            The whole thing runs in a browser tab, so you can sit down and lose to it.</p>
+          <p class="mine">My work is on search and evaluation: a rollout-based search
+            that outplayed the earlier one, experiments on whether what search finds
+            can be trained back into the network, and a census of blunders the engine
+            can prove are mistakes.</p>
+          <ul class="links">
+            <li><a href="https://mihaild.github.io/DeepStruggle/">Play against it</a></li>
+            <li><a href="https://mihaild.github.io/DeepStruggle/leaderboard.html">Leaderboard</a></li>
+            <li><a href="https://github.com/JamesYouL2/DeepStruggle">My fork</a></li>
+            <li><a href="https://github.com/mihaild/DeepStruggle">Main repository</a></li>
+            <li><a href="https://github.com/mihaild/DeepStruggle/pulls?q=is%3Apr+author%3AJamesYouL2">My pull requests</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <span class="mark fork" aria-hidden="true"></span>
+        <div>
+          <h3><a href="https://github.com/JamesYouL2/struggler">struggler</a></h3>
+          <p class="whose">My fork of Alejandro Pinel Martínez's engine.<span class="meta" data-repo="JamesYouL2/struggler" data-stars="0" data-pushed="2026-09-29"></span></p>
+          <p class="about">A Python engine for the same game, built so that bots can
+            be swapped in and played against each other. One of them is an LLM player
+            that reads the rules and a strategy guide, drafts a plan each turn, and
+            decides when to abandon it.</p>
+          <p class="mine">In my fork I rebuilt the non-LLM strategic bot: country
+            values fitted from games, an opening book, tree-search experiments, and a
+            win-probability model checked on held-out games. A change only ships if it
+            wins a tournament run in CI.</p>
+          <ul class="links">
+            <li><a href="https://github.com/JamesYouL2/struggler">Code</a></li>
+            <li><a href="https://siestainsolaris.substack.com/p/giving-ai-the-atom-bomb-buttons">The original author's write-up</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <span class="mark contrib" aria-hidden="true"></span>
+        <div>
+          <h3><a href="https://github.com/JamesYouL2/MTGA_Draft_17Lands">MTGA Draft Tool</a></h3>
+          <p class="whose">Tom Szymanski's project. I contribute.<span class="meta" data-repo="unrealities/MTGA_Draft_17Lands" data-stars="167" data-pushed="2026-11-09"></span></p>
+          <p class="about">A draft assistant for Magic: The Gathering Arena that
+            rates each pick using 17Lands data.</p>
+          <p class="mine">I work on the draft advisor: a deck score built from named
+            features, a harness that replays past drafts through it, and tests of
+            competing pick rules against real game results.</p>
+          <ul class="links">
+            <li><a href="https://github.com/JamesYouL2/MTGA_Draft_17Lands">My fork</a></li>
+            <li><a href="https://github.com/unrealities/MTGA_Draft_17Lands">Main repository</a></li>
+            <li><a href="https://github.com/unrealities/MTGA_Draft_17Lands/pulls?q=is%3Apr+author%3AJamesYouL2">My pull requests</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <span class="mark own" aria-hidden="true"></span>
+        <div>
+          <h3><a href="https://github.com/JamesYouL2/FantasyBaseball">FantasyBaseball</a></h3>
+          <p class="whose">Mine.<span class="meta" data-repo="JamesYouL2/FantasyBaseball" data-stars="6" data-pushed="2026-08-10"></span></p>
+          <p class="about">Pulls FanGraphs depth-chart projections into a spreadsheet
+            every day and syncs it with my Yahoo league.</p>
+          <ul class="links">
+            <li><a href="https://github.com/JamesYouL2/FantasyBaseball">Code</a></li>
+          </ul>
+        </div>
+      </li>
+
+    </ul>
+
+    <p class="older">Older work, going back to 2018, is on
+      <a href="https://github.com/JamesYouL2?tab=repositories">GitHub</a>. It includes
+      <a href="https://github.com/JamesYouL2/TFT-Crawler">TFT-Crawler</a>, a Teamfight
+      Tactics tier list built from high-ranked games, and
+      <a href="https://github.com/JamesYouL2/TSLogger">TSLogger</a>, which makes the
+      Steam version of Twilight Struggle write its game log to a file.</p>
   </section>
 
-  <section>
-    <h2>Smaller contributions</h2>
-    <ul class="projects">
-      <li data-repo="UKGovernmentBEIS/inspect_ai" data-stars="3209" data-pushed="2026-11-09">
-        <div class="head">
-          <a href="https://github.com/UKGovernmentBEIS/inspect_ai"><span class="owner">UKGovernmentBEIS/</span>inspect_ai</a>
-          <span class="meta"></span>
-        </div>
-        <p>A framework for evaluating large language models.</p>
-        <p class="mine">One merged docs fix.</p>
-      </li>
-      <li data-repo="moj-analytical-services/splink" data-stars="2568" data-pushed="2026-11-09">
-        <div class="head">
-          <a href="https://github.com/moj-analytical-services/splink"><span class="owner">moj-analytical-services/</span>splink</a>
-          <span class="meta"></span>
-        </div>
-        <p>Probabilistic record linkage at scale, on several SQL backends.</p>
-        <p class="mine">One open pull request updating stale version notes and dead links in the docs.</p>
-      </li>
-    </ul>
-  </section>
+  <footer>
+    <p>James You, Bellevue, WA</p>
+  </footer>
 
-  <section>
-    <h2>Older projects</h2>
-    <ul class="projects">
-      <li data-repo="JamesYouL2/TFT-Crawler" data-stars="8" data-pushed="2020-12-24">
-        <div class="head">
-          <a href="https://github.com/JamesYouL2/TFT-Crawler"><span class="owner">JamesYouL2/</span>TFT-Crawler</a>
-          <span class="meta"></span>
-        </div>
-        <p>Built a Teamfight Tactics tier list from Master+ games on the current patch, using the Riot API.</p>
-      </li>
-      <li data-repo="JamesYouL2/TSLogger" data-stars="1" data-pushed="2020-06-11">
-        <div class="head">
-          <a href="https://github.com/JamesYouL2/TSLogger"><span class="owner">JamesYouL2/</span>TSLogger</a>
-          <span class="meta"></span>
-        </div>
-        <p>A patch for the Steam version of Twilight Struggle that writes the in-game log to files.</p>
-      </li>
-    </ul>
-  </section>
-
-  <footer>Stars and activity come from the GitHub API when it is reachable; otherwise they are as of November 2026.</footer>
 </main>
 
 <script>
+/* Stars and last activity: shown from the values in the markup, then refreshed from the GitHub API. */
 (function () {
-  var items = document.querySelectorAll("li[data-repo]");
-
   function ago(iso) {
     var days = Math.floor((Date.now() - new Date(iso).getTime()) / 864e5);
     if (days < 1) return "active today";
@@ -187,29 +273,27 @@
     }
     return "last active " + new Date(iso).getUTCFullYear();
   }
-
-  function render(li) {
-    var stars = Number(li.dataset.stars);
+  function render(el) {
+    var stars = Number(el.dataset.stars);
     var html = "";
     if (stars > 0) html += "<span>★ " + stars.toLocaleString("en-US") + "</span>";
-    html += "<span>" + ago(li.dataset.pushed) + "</span>";
-    li.querySelector(".meta").innerHTML = html;
+    html += "<span>" + ago(el.dataset.pushed) + "</span>";
+    el.innerHTML = html;
   }
-
-  items.forEach(function (li) {
-    render(li);
-    var key = "gh:" + li.dataset.repo;
-    var apply = function (d) {
+  document.querySelectorAll(".meta[data-repo]").forEach(function (el) {
+    render(el);
+    var key = "gh:" + el.dataset.repo;
+    function apply(d) {
       if (!d || typeof d.stars !== "number" || !d.pushed) return;
-      li.dataset.stars = d.stars;
-      li.dataset.pushed = d.pushed;
-      render(li);
-    };
+      el.dataset.stars = d.stars;
+      el.dataset.pushed = d.pushed;
+      render(el);
+    }
     try {
       var cached = JSON.parse(sessionStorage.getItem(key));
       if (cached) { apply(cached); return; }
     } catch (e) {}
-    fetch("https://api.github.com/repos/" + li.dataset.repo)
+    fetch("https://api.github.com/repos/" + el.dataset.repo)
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (j) {
         if (!j) return;
